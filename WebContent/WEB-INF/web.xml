@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>  
+
+<web-app version="3.0"   
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">   
+ 
+  <servlet>  
+    <servlet-name>Proxy</servlet-name>  
+    <servlet-class>servlet.HttpProxyServlet</servlet-class> 
+    <init-param>
+      <param-name>proxy</param-name>
+      <param-value>yes</param-value>
+    </init-param>
+    <init-param>
+      <param-name>target</param-name>
+      <param-value>http://www.baidu.com/s</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup> 
+  </servlet>
+  <servlet>  
+    <servlet-name>Setting</servlet-name>  
+    <servlet-class>servlet.SettingServlet</servlet-class>
+    <load-on-startup>0</load-on-startup> 
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Proxy</servlet-name>
+    <url-pattern>/proxy</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Setting</servlet-name>
+    <url-pattern>/set</url-pattern>
+  </servlet-mapping>
+</web-app>  
